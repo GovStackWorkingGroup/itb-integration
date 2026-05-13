@@ -5,6 +5,7 @@
 ```
 <bb>/
     index.md
+    release_notes.md
     description.md
     data_structures.md
     internal_workflows.md
@@ -28,7 +29,7 @@
     + at the building block level
     + at the chapter level
 
-### Index file structure
+## Index file structure
 
 See [Parsing Specification Metadata](#parsing-specification-metadata) for machine-readibility details.
 
@@ -39,8 +40,9 @@ publication_identifier: # provided by GovStack GovSpecs Team (Ali, Kristo, etc).
 publication_name: # ex. Wallet Building Block Specification
 publication_description: # Optional; is used to render cards for the publication and for SEO. 
 version: # ex. 1.0.0
+version_description: # short description of what happens in this version.
 previous_version: # ex. 0.9.0 ; this is used to build version chains. 
-status: # Example: [latest, release, development] This is a machine-processed value, not to be filled by people. 
+status: # Example: [latest, release, pre-release, review, development] This is a machine-processed value, not to be filled by people. 
 working_group: # provided by GovSpecs team. Ex: "working_group/cfid"
 publish_date: # example: 2025-09-01, this is a machine-processed value, not to be filled by people. Use ISO 8601.
 cover: # url for the cover
@@ -76,6 +78,37 @@ original_authors:
         url: "https://url.com" 
 ---
 ```
+## Release Notes file structure
+Release notes has no formal file structure, but the following sections are suggested. Please note that all headings must start by using H1 elements and go down as semantically necessary.
+```
+---
+authors:
+  - identifier: person/jane_doe
+---
+# 1. Overview
+[Overall context and rational behind this version. i.e. "This version was the result of co-writing and discussions between X date and Y date by the Information Mediator Working Group where functionalities X where added, etc. ]
+
+# 2. Changes
+
+[It is suggested to go into as much detail as possible. Linking to Github Change Requests is also encouraged to provide readers with exact change context. 
+
+Sub-sections by changes, additions and removals are also encouraged.
+
+A good reference is this Release notes by Wallet WG: https://specs.govstack.global/wallet/1-version-history/release-notes]
+
+```
+
+## Description File Structure
+
+The Description chapter does not have a formal file structure, however the objectives of this chapter are as follows:
+
+- Describe any context information of how this Building Block is used and its presentation
+- Describe the overall model this BB operates on. This includes describing all actors and systems that this BB communicates with and lifecycle definition
+- Scoping information about the BB such as implementation assumptions and out-of-scope declarations
+- Contextual data, such as standards that are equivalent of that this specification uses.
+- If there are any implementation guides, use cases or reference material.
+
+See [Wallet](https://specs.govstack.global/wallet/2-description) or [Consent](https://specs.govstack.global/consent/2-description) for good examples.
 
 
 ## Terminology file structure
