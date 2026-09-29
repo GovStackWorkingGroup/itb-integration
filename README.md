@@ -10,3 +10,9 @@ corresponding to the requirements.
 ```shell
 $ uv run itbload <bb-src-dir> -o build/
 ```
+
+## Upload the generated test suites to an ITB instance
+
+```shell
+uv run itbupload --url "http://localhost:9000/api/rest" build/
+```

@@ -9,10 +9,12 @@ authors = [
 requires-python = ">=3.13"
 dependencies = [
     "pyyaml>=6.0.3",
+    "requests>=2.34.2",
 ]
 
 [project.scripts]
 itbload = "itb_integration.cli:cli"
+itbupload = "itb_integration.bin.upload:cli"
 
 [build-system]
 requires = ["uv_build>=0.10.7,<0.11.0"]
