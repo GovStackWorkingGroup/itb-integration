@@ -103,6 +103,8 @@ def zip_functionality(path, *, id=None, name=None, description=None, output=None
         with open(path / "testSuite.xml", "w") as suitefile:
             suitefile.write(suite_data)
 
+        os.makedirs(output, exist_ok=True)
+
         with ZipFile(output / f"{func_id}.zip", "w") as zipfile:
             zipfile.write(path / "testSuite.xml", arcname="testSuite.xml")
             zipfile.mkdir("testCases")
@@ -126,9 +128,9 @@ def main(args):
     for yaml in functionalities:
         zip_functionality(
             args.path / "functionalities" / yaml,
-            id=metadata["publication_id"],
+            id=metadata["urn"],
             name=metadata["name"],
-            description=metadata["description"],
+            description=metadata["abstract"],
             output=args.output,
         )
         print(f"\tProcessed {yaml}")
