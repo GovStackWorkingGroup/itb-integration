@@ -21,6 +21,8 @@ def main(args):
         "ITB-API-KEY": org_key,
     })
 
+    res.raise_for_status()
+
     specs = dict()
 
     for spec in res.json():
