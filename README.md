@@ -8,7 +8,7 @@ directory) and will output one zip file per functionality with the test cases
 corresponding to the requirements.
 
 ```shell
-$ uv run itbload <bb-src-dir> -o build/
+$ uv run itbconvert <bb-src-dir> -o build/
 ```
 
 ## Upload the generated test suites to an ITB instance

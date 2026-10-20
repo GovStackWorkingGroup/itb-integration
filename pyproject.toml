@@ -13,8 +13,8 @@ dependencies = [
 ]
 
 [project.scripts]
-itbload = "itb_integration.cli:cli"
-itbupload = "itb_integration.bin.upload:cli"
+itbconvert = "itb_integration.convert:cli"
+itbupload = "itb_integration.upload:cli"
 
 [build-system]
 requires = ["uv_build>=0.10.7,<0.11.0"]
