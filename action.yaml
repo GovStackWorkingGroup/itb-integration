@@ -1,0 +1,14 @@
+name: 'Publish to ITB'
+description: |
+  Add me to a building block repository to publish its functionalities as test
+  suites in an ITB instance.
+runs:
+  using: "composite"
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.14"
+    - name: Convert to ITB format
+      shell: bash
+      run: python "${{ github.action_path }}/src/itb_integration/convert.py"
