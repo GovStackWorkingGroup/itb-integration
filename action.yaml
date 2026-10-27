@@ -6,6 +6,9 @@ inputs:
   src-path:
     required: true
     description: the path within the source to the directory containing metadata.yaml
+  itb-url:
+    required: true
+    description: URL of the itb instance
 runs:
   using: "composite"
   steps:
@@ -21,3 +24,6 @@ runs:
       env:
         INPUT_SRC: ${{ inputs.src-path }}
       run: python "${{ github.action_path }}/src/itb_integration/convert.py" "$INPUT_SRC" -o build
+    - name: Upload to ITB instance
+      shell: bash
+      run: python "${{ github.action_path }}/src/itb_integration/upload.py" -u "$INPUT_ITB_URL" build
