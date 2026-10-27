@@ -9,6 +9,15 @@ inputs:
   itb-url:
     required: true
     description: URL of the itb instance
+  itb-org-key:
+    required: true
+    description: Key to the organization managing the domain
+  itb-group-key:
+    required: true
+    description: Key to the spec group
+  itb-domain-key:
+    required: true
+    description: Key to the domain containing this spec
 runs:
   using: "composite"
   steps:
@@ -27,3 +36,7 @@ runs:
     - name: Upload to ITB instance
       shell: bash
       run: python "${{ github.action_path }}/src/itb_integration/upload.py" -u "$INPUT_ITB_URL" build
+      env:
+        ITB_ORG_KEY: ${{ inputs.itb-org-key }}
+        ITB_GROUP_KEY: ${{ inputs.itb-group-key }}
+        ITB_DOMAIN_KEY: ${{ inputs.itb-domain-key }}
