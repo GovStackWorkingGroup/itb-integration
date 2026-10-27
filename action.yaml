@@ -2,6 +2,10 @@ name: 'Publish to ITB'
 description: |
   Add me to a building block repository to publish its functionalities as test
   suites in an ITB instance.
+inputs:
+  src-path:
+    required: true
+    description: the path within the source to the directory containing metadata.yaml
 runs:
   using: "composite"
   steps:
@@ -14,4 +18,6 @@ runs:
       run: pip install pyyaml requests
     - name: Convert to ITB format
       shell: bash
-      run: python "${{ github.action_path }}/src/itb_integration/convert.py"
+      env:
+        INPUT_SRC: ${{ inputs.src-path }}
+      run: python "${{ github.action_path }}/src/itb_integration/convert.py" "$INPUT_SRC" -o build
