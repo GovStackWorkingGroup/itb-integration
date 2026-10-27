@@ -1,4 +1,4 @@
-# Scripts for integration into ITB
+# Scripts and github action for integration into ITB
 
 ## Convert a building block into test-suites
 

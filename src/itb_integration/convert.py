@@ -4,9 +4,9 @@ import sys
 import argparse
 from pathlib import Path
 from zipfile import ZipFile
+from tempfile import TemporaryDirectory
 
 from yaml import load as load_yaml, Loader
-from tempfile import TemporaryDirectory
 
 
 def req_as_test(requirement: dict, *, id: str, name: str):
